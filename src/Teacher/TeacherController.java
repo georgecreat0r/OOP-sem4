@@ -38,4 +38,19 @@ public class TeacherController implements UserController<Teacher> {
         tv.sendOnConsole(ts.getList());
     }
 
+    public void changeSurname(Teacher t, String s) {
+        t.setSurname(s);
+    }
+
+    public void changeName(Teacher t, String s) {
+        t.setName(s);
+    }
+
+    public void changePatronymic(Teacher t, String s) {
+        t.setPatronymic(s);
+    }
+
+    public void changeSubject(Teacher t, String s) {
+        t.setSubject(s);
+    }
 }

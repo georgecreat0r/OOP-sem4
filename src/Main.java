@@ -12,15 +12,20 @@ public class Main {
 
         // Инициализация учителей.
         Teacher t1 = tc.create(001, "Петрова", "Евгения", "Леонидовна", 46);
-        t1.setSubject("Математика");
+        tc.changeSubject(t1, "Математика");
+
         Teacher t2 = tc.create(005, "Иванова", "Лариса", "Васильевна", 44);
-        t2.setSubject("История");
+        tc.changeSubject(t2, "История");
+
         Teacher t3 = tc.create(002, "Попова", "Александра", "Борисовна", 51);
-        t3.setSubject("Биология");
+        tc.changeSubject(t3, "Биология");
+
         Teacher t4 = tc.create(004, "Волкова", "Марина", "Михайловна", 39);
-        t4.setSubject("ОБЖ");
+        tc.changeSubject(t4, "ОБЖ");
+
         Teacher t5 = tc.create(003, "Александрова", "Наталья", "Алексеевна", 70);
-        t5.setSubject("Химия");
+        tc.changeSubject(t5, "Химия");
+
 
         // Заполнение списка учителями.
         tc.add(t1);
@@ -40,8 +45,14 @@ public class Main {
         tc.printTeachers();
 
         System.out.println("----Редактирование учителя----\n" +
-                "С Петорова на Жирова\n");
-        t1.setSurname("Жирова");
+                "\nДО:\n");
+
+        System.out.println(t1 + "\nПОСЛЕ:\n");
+
+        tc.changeSurname(t1, "Жирова");
+        tc.changeName(t1, "Ксения");
+        tc.changePatronymic(t1, "Аркадьевна");
+
         System.out.println(t1);
     }
 }
