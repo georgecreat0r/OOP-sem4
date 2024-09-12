@@ -1,0 +1,34 @@
+package Package;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+public class GroupService {
+
+    protected void removeStudent(String surname, String name, String patronymic, Group group) {
+        Iterator<Student> iterator = group.iterator();
+        while (iterator.hasNext()) {
+            Student student = iterator.next();
+            if (student.getSurname().equals(surname) && student.getName().equals(name) && student.getPatronymic().equals(patronymic)) {
+                iterator.remove();
+            }
+        }
+    }
+
+    protected List<Student> sortById(Group group) {
+        List<Student> res = new ArrayList<>(group.getStudents());
+        res.sort(Student::compareTo);
+        return res;
+    }
+
+    protected List<Student> sortByName(Group group) {
+        List<Student> res = new ArrayList<>(group.getStudents());
+        res.sort(new UserComparator<Student>());
+        return res;
+    }
+
+    public Student createStudent(int id, String surname, String name, String patronymic, int age) {
+        return new Student(id, surname, name, patronymic, age);
+    }
+}
